@@ -97,13 +97,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://ec2-3-83-222-138.compute-1.amazonaws.com:8081/repository/SAMPLE_RELEASE/</url>
+	      <url>http://ec2-54-91-233-9.compute-1.amazonaws.com:8081/repository/SAMPLE_RELEASE/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://ec2-3-83-222-138.compute-1.amazonaws.com:8081/repository/SNAP_SHOT/</url>
+	      <url>http://ec2-54-91-233-9.compute-1.amazonaws.com:8081/repository/SNAP_SHOT/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>		
