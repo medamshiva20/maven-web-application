@@ -8,7 +8,7 @@ steps:
   displayName: 'CheckNodeVersion'
   inputs:
    versionSpec: '14.x'
-- task: 'YarnInstall@12'
+- task: YarnInstall@12
   displayName: 'UseYarn 1.x'
 - script: |
    node --version
