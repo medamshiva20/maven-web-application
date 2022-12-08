@@ -1,9 +1,4 @@
-name: Azure Pipeline 
-resources:
- repositories: medamshiva20/maven-web-application.git
-- script: |
-   git init
-   git clone https://github.com/medamshiva20/maven-web-application.git
+
 trigger:
  - master
 pool:
