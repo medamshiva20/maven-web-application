@@ -9,7 +9,9 @@ steps:
   inputs:
    versionSpec: '14.x'
 - task: YarnInstall@12
-  displayName: 'UseYarn 1.x'
+  displayName: 'UseYarn'
+  inputs:
+    versionSpec: '1.x'
 - script: |
    node --version
    npm --version
