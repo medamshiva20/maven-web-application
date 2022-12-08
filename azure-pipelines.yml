@@ -4,14 +4,6 @@ trigger:
 pool:
  vmImage: 'ubuntu-latest'
 steps:
-- task: UseNodeVersion@11
-  displayName: 'CheckNodeVersion'
-  inputs:
-   versionSpec: '14.x'
-- task: YarnInstall@12
-  displayName: 'UseYarn'
-  inputs:
-    versionSpec: '1.x'
 - script: |
    node --version
    npm --version
