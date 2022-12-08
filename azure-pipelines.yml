@@ -8,60 +8,17 @@ trigger:
  - master
 pool:
  vmImage: 'ubuntu-latest'
-steps:
-- task: UseNodeVersion@0
-  displayName: 'CheckNodeVersion'
-  inputs:
-   versionSpec: '14.x'
-- task: 'YarnInstall'
-  displayName: 'UseYarn 1.x'
-- script: |
-   node --version
-   npm --version
-   yarn --version
-   pwd
-   ls
-   rm -rf dist
-   rm -rf node_modules
-   ls
-   export VERSION=v4/
-   export GRANYTYPE=password
-   export REFRESHGRANTTYPE=refresh_token
-   export ONESIGNALAPPID=4ba2c433-5984-42db-8840-c8fca2e0c8cf
-   export DEV_WEBAPIURL=https://app-dev-sre.helixsense.com
-   export GOOGLE_API_KEY=AIzaSyAJ1Ra59I-yonhcvV3BbyaI-ayzFyaXW5Y
-   export GOOGLE_CAPTCHA_SITE_KEY=6LfzYzUfAAAAADFX4l4BMj2hzXVxf30aPXoTaoQP
-   export GOOGLE_CAPTCHA_SECRET_KEY=6LfzYzUfAAAAADQ_aoQLU8_8NRaCsIY5kQj876Gq
-   export NODE_OPTIONS=--max_old_space_size=4096
-   export REACT_APP_WEB_URL=https://app-dev-sre.helixsense.com
-   export WEBAPIURL=https://app-dev-sre.helixsense.com
-   export CLIENT_NAME=default
-   export ENV=dev
-   export IS_USE_APIGATEWAY=false
-   export MUI_LICENSE_KEY=5409103c3309cabaa7a20e98f6a3965cTz01NDA0MixFPTE2OTk2MDE2NDk0OTAsUz1wcm8sTE09c3Vic2NyaXB0aW9uLEtWPTI=
-   
-   yarn
-   yarn run dev --env.CLIENT_NAME=sfx
-   pwd
-   ls
-   echo "Removing existing dev package directory"
-   rm -rf dev
-   ls
-   echo "creating new dev package directory"
-   mkdir dev
-   cp -r dist ./dev 
-   cp package.json server.js powerBi.js ./dev
-   cp -r node_modules ./dev
-   cp -r jumpcloud ./dev
-   echo "Listing contents of New Environment"
-   ls ./dev
-  displayName: yarn
-- script: |
-   cd ./dev
-   zip -r $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip ./*
-   ls -larth $(Build.ArtifactStagingDirectory)
-  displayName: Archive
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: hsense-dev-sre'
-  inputs:
-    ArtifactName: 'hsense-dev-sre'
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: MavenPackageAndPublishArtifacts
+    displayName: Maven Package and Publish Artifacts
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - task: Maven@3
+      displayName: 'Maven Package'
+      inputs:
+        mavenPomFile: 'pom.xml'
