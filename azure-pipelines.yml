@@ -4,11 +4,11 @@ trigger:
 pool:
  vmImage: 'ubuntu-latest'
 steps:
-- task: UseNodeVersion@0
+- task: UseNodeVersion@11
   displayName: 'CheckNodeVersion'
   inputs:
    versionSpec: '14.x'
-- task: 'YarnInstall'
+- task: 'YarnInstall@12'
   displayName: 'UseYarn 1.x'
 - script: |
    node --version
