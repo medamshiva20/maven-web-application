@@ -32,4 +32,4 @@ steps:
    cp -r jumpcloud ./dev
    echo "Listing contents of New Environment"
    ls ./dev
-  displayName: yarn
+  displayName: yarn name
