@@ -16,8 +16,6 @@ stages:
       inputs:
         versionSource: 'spec'
         versionSpec: '14.x'
-    - task: YarnInstaller@3
-      displayName: 'Use Yarn 1.x'
     - task: CmdLine@2
       displayName: Packages Installation
       inputs:
