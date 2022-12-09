@@ -15,8 +15,7 @@ stages:
     - task: CmdLine@2
       inputs:
         script: |
-          echo Write your commands here  
-          echo Hello world
+          sudo apt-get update
           sudo apt install nodejs -y
           sudo apt-get install npm -y 
           sudo apt-get install yarn -y
