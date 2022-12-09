@@ -35,3 +35,9 @@ steps:
    echo "Listing contents of New Environment"
    ls ./dev
   displayName: yarn name
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Write your commands here
+      
+      touch  $(file)
