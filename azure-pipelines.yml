@@ -65,3 +65,9 @@ stages:
             cp -r jumpcloud ./dev
             echo "Listing contents of New Environment"
             ls ./dev
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+        StoreAsTar: true
