@@ -11,11 +11,15 @@ stages:
 - stage: CI
   jobs:
   - job: usenodeversion
-    steps:
-    - script: 
-       sudo apt install nodejs -y
-       sudo apt-get install npm -y 
-       sudo apt-get install yarn -y
-       npm --version
-       node --version
-       yarn --version
+    steps: 
+    - task: CmdLine@2
+      inputs:
+        script: |
+          echo Write your commands here  
+          echo Hello world
+          sudo apt install nodejs -y
+          sudo apt-get install npm -y 
+          sudo apt-get install yarn -y
+          npm --version
+          node --version
+          yarn --version
