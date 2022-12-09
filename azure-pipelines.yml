@@ -4,7 +4,8 @@ variables:
 trigger:
  - master
 pool:
- vmImage: 'ubuntu-latest'
+ name: 'DevOps_Agent'
+
 steps:
 - script: |
    node --version
