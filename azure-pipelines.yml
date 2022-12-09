@@ -16,8 +16,8 @@ steps:
    rm -rf node_modules
    ls
 - script: echo $(value)
-   echo ${key}
-   echo ${current path}
+   echo $(key)
+   echo $(current path)
    yarn
    yarn run dev --env.CLIENT_NAME=sfx
    pwd
