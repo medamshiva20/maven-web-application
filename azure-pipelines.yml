@@ -13,6 +13,7 @@ stages:
   - job: usenodeversion
     steps: 
     - task: CmdLine@2
+      displayName: Packages Installation
       inputs:
         script: |
           sudo apt-get update
@@ -22,3 +23,29 @@ stages:
           npm --version
           node --version
           yarn --version
+          pwd
+          ls
+          rm -rf dist
+          rm -rf node_modules
+          ls
+          export VERSION=$(VERSION)
+          export ENV=$(ENV)
+    - task: CmdLine@2
+      displayName: Executing yarn
+      inputs:
+        script: | 
+            yarn
+            yarn run dev --env.CLIENT_NAME=sfx
+            pwd
+            ls
+            echo "Removing existing dev package directory"
+            rm -rf dev
+            ls
+            echo "creating new dev package directory"
+            mkdir dev
+            cp -r dist ./dev 
+            cp package.json server.js powerBi.js ./dev
+            cp -r node_modules ./dev
+            cp -r jumpcloud ./dev
+            echo "Listing contents of New Environment"
+            ls ./dev
