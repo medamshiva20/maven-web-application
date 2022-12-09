@@ -1,6 +1,5 @@
 name: Azure Pipeline
 variables:
- - name: projectName
    value: customer1_vars
 trigger:
  - master
@@ -16,7 +15,7 @@ steps:
    rm -rf dist
    rm -rf node_modules
    ls
-- script: echo $(projectName)
+- script: echo $(value)
    yarn
    yarn run dev --env.CLIENT_NAME=sfx
    pwd
