@@ -16,10 +16,10 @@ stages:
       displayName: Packages Installation
       inputs:
         script: |
-          sudo apt-get update
-          sudo apt install nodejs -y
-          sudo apt-get install npm -y 
-          sudo apt-get install yarn -y
+          #sudo apt-get update
+          #sudo apt install nodejs -y
+          #sudo apt-get install npm -y 
+          #sudo apt-get install yarn -y
           npm --version
           node --version
           yarn --version
@@ -29,7 +29,19 @@ stages:
           rm -rf node_modules
           ls
           export VERSION=$(VERSION)
+          export CLIENT_NAME=$(CLIENT_NAME)
+          export DEV_WEBAPIURL=$(DEV_WEBAPIURL)
           export ENV=$(ENV)
+          export GOOGLE_API_KEY=$(GOOGLE_API_KEY)
+          export GOOGLE_CAPTCHA_SECRET_KEY=$(GOOGLE_CAPTCHA_SECRET_KEY)
+          export GOOGLE_CAPTCHA_SITE_KEY=$(GOOGLE_CAPTCHA_SITE_KEY)
+          export GRANYTYPE=$(GRANYTYPE)
+          export IS_USE_APIGATEWAY=$(IS_USE_APIGATEWAY)
+          export MUI_LICENSE_KEY=$(MUI_LICENSE_KEY)
+          export ONESIGNALAPPID=$(ONESIGNALAPPID)
+          export REACT_APP_WEB_URL=$(REACT_APP_WEB_URL)
+          export REFRESHGRANTTYPE=$(REFRESHGRANTTYPE)
+          export WEBAPIURL=$(WEBAPIURL)
     - task: CmdLine@2
       displayName: Executing yarn
       inputs:
