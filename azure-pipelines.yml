@@ -41,3 +41,4 @@ steps:
       echo Write your commands here
       
       touch  $(file)
+      ls
