@@ -2,41 +2,20 @@ name: Azure Pipeline
 variables:
 - group: customer1_vars
 trigger:
- - master
-pool:
- name: 'DevOps_Agent'
+- main
 
-steps:
-- script: |
-   node --version
-   npm --version
-   yarn --version
-   pwd
-   ls
-   rm -rf dist
-   rm -rf node_modules
-   ls
-- script: echo $(group)
-   yarn
-   yarn run dev --env.CLIENT_NAME=sfx
-   pwd
-   ls
-   echo "Removing existing dev package directory"
-   rm -rf dev
-   ls
-   echo "creating new dev package directory"
-   mkdir dev
-   cp -r dist ./dev 
-   cp package.json server.js powerBi.js ./dev
-   cp -r node_modules ./dev
-   cp -r jumpcloud ./dev
-   echo "Listing contents of New Environment"
-   ls ./dev
-  displayName: yarn name
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo Write your commands here
-      
-      touch  $(file)
-      ls
+pool: 
+  vmImage: ubuntu-latest
+
+stages:
+- stage: CI
+  jobs:
+  - job: usenodeversion
+    steps:
+    - script: 
+       sudo apt-get install node -y
+       sudo apt-get install npm -y 
+       sudo apt-get install yarn -y
+       npm --version
+       node --version
+       yarn --version
