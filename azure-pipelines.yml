@@ -12,6 +12,10 @@ stages:
   jobs:
   - job: usenodeversion
     steps: 
+    - task: NodeTool@0
+      displayName: 'Use Node 14.x'
+      inputs:
+       versionSpec: 14.x
     - task: CmdLine@2
       displayName: Packages Installation
       inputs:
