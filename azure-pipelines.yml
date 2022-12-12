@@ -30,7 +30,7 @@ stages:
           rm -rf dist
           rm -rf node_modules
           ls
-          $env:VERSION
+          export VERSION=$VERSION
           export CLIENT_NAME=$(CLIENT_NAME)
           export DEV_WEBAPIURL=$(DEV_WEBAPIURL)
           export ENV=$(ENV)
