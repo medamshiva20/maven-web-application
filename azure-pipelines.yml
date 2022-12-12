@@ -22,7 +22,7 @@ stages:
         script: |
           #sudo apt-get update
           #sudo apt install nodejs -y
-          #sudo apt-get install npm -y 
+          #sudo apt-get install npm -y
           #sudo apt-get install yarn -y
           npm --version
           node --version
@@ -68,7 +68,7 @@ stages:
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
+        ArtifactName: 'hlx_nodejs'
         publishLocation: 'Container'
     - task: Bash@3
       inputs:
