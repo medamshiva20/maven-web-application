@@ -70,9 +70,9 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'hlx_nodejs'
         publishLocation: 'Container'
-    - task: Bash@3
-      inputs:
-        targetType: 'inline'
-        script: |
-          # Write your commands here
-          zip hlx_nodejs-artifact.zip hlx_nodejs
+   # - task: Bash@3
+   #   inputs:
+   #     targetType: 'inline'
+   #     script: |
+   #       # Write your commands here
+   #       zip hlx_nodejs-artifact.zip hlx_nodejs
