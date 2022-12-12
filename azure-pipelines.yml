@@ -1,6 +1,6 @@
 name: Azure Pipeline
-#variables:
-#- group: customer1_vars
+variables:
+- group: customer1_vars
 trigger:
 - main
 pool: 
