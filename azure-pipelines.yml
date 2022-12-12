@@ -30,21 +30,20 @@ stages:
           rm -rf dist
           rm -rf node_modules
           ls
-          export VERSION=v4/
-          export GRANYTYPE=password
-          export REFRESHGRANTTYPE=refresh_token
-          export ONESIGNALAPPID=4ba2c433-5984-42db-8840-c8fca2e0c8cf
-          export DEV_WEBAPIURL=https://app-dev-sre.helixsense.com
-          export GOOGLE_API_KEY=AIzaSyAJ1Ra59I-yonhcvV3BbyaI-ayzFyaXW5Y
-          export GOOGLE_CAPTCHA_SITE_KEY=6LfzYzUfAAAAADFX4l4BMj2hzXVxf30aPXoTaoQP
-          export GOOGLE_CAPTCHA_SECRET_KEY=6LfzYzUfAAAAADQ_aoQLU8_8NRaCsIY5kQj876Gq
-          export NODE_OPTIONS=--max_old_space_size=4096
-          export REACT_APP_WEB_URL=https://app-dev-sre.helixsense.com
-          export WEBAPIURL=https://app-dev-sre.helixsense.com
-          export CLIENT_NAME=default
-          export ENV=dev
-          export IS_USE_APIGATEWAY=false
-          export MUI_LICENSE_KEY=5409103c3309cabaa7a20e98f6a3965cTz01NDA0MixFPTE2OTk2MDE2NDk0OTAsUz1wcm8sTE09c3Vic2NyaXB0aW9uLEtWPTI=
+          export VERSION=$(VERSION)
+          export CLIENT_NAME=$(CLIENT_NAME)
+          export DEV_WEBAPIURL=$(DEV_WEBAPIURL)
+          export ENV=$(ENV)
+          export GOOGLE_API_KEY=$(GOOGLE_API_KEY)
+          export GOOGLE_CAPTCHA_SECRET_KEY=$(GOOGLE_CAPTCHA_SECRET_KEY)
+          export GOOGLE_CAPTCHA_SITE_KEY=$(GOOGLE_CAPTCHA_SITE_KEY)
+          export GRANYTYPE=$(GRANYTYPE)
+          export IS_USE_APIGATEWAY=$(IS_USE_APIGATEWAY)
+          export MUI_LICENSE_KEY=$(MUI_LICENSE_KEY)
+          export ONESIGNALAPPID=$(ONESIGNALAPPID)
+          export REACT_APP_WEB_URL=$(REACT_APP_WEB_URL)
+          export REFRESHGRANTTYPE=$(REFRESHGRANTTYPE)
+          export WEBAPIURL=$(WEBAPIURL)
     - task: CmdLine@2
       displayName: Executing yarn
       inputs:
