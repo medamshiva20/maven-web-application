@@ -8,7 +8,7 @@ pool:
 stages:
 - stage: CI
   jobs:
-  - job: usenodeversion
+  - job: UseNodeVersion
     steps: 
     - task: NodeTool@0
       inputs:
@@ -18,7 +18,7 @@ stages:
       displayName: Packages Installation
       inputs:
         script: |
-          sudo apt-get update
+          sudo apt-get update -y
           sudo apt install nodejs -y
           sudo apt-get install npm -y
           sudo apt-get install yarn -y
@@ -59,8 +59,8 @@ stages:
             echo "creating new dev package directory"
             mkdir dev
             cp -r dist ./dev 
-            cp package.json server.js powerBi.js ./dev
-            cp -r node_modules ./dev
+            cp /home/motivity/_work/node_modules/vso-task-lib/package.json server.js powerBi.js ./dev
+            cp -r /home/motivity/_work/node_modules/vso-task-lib/node_modules/node_modules ./dev
             cp -r jumpcloud ./dev
             echo "Listing contents of New Environment"
             ls ./dev
