@@ -8,7 +8,7 @@ stages:
   jobs:
   - job: UseNodeVersion
     variables:
-    - group: customer1_vars
+    - group: customer1_dev
     steps: 
     - task: NodeTool@0
       inputs:
