@@ -15,7 +15,7 @@ stages:
         versionSource: 'spec'
         versionSpec: '14.x'
     - task: CmdLine@2
-      displayName: Packages Installation
+      displayName: Packages Installation on Agent Node
       inputs:
         script: |
           sudo apt-get update -y
