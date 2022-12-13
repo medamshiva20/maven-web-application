@@ -2,7 +2,7 @@ name: Azure Pipeline
 trigger:
 - master
 variables:
-- group: customer1_dev
+- group: customer2_qa
 pool: 
  name: DevOps_Agent
 stages:
