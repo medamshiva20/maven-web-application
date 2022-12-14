@@ -2,7 +2,7 @@ name: Azure Pipeline
 trigger:
 - master
 variables:
-- group: var_dev.cbre_dev  
+- group: var_dev
 parameters:
   - name: variables
     displayName: CallingVariables
