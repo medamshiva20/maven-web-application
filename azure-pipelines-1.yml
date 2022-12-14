@@ -12,9 +12,8 @@ stages:
   jobs:
   - job: SampleTestingJob
     steps:
-    - task:
-      displayName: Packages Installation
+    - task: CmdLine@2
       inputs:
-       script: |
-          sudo apt-get install openjdk-8-jdk
-          sudo apt-get install maven
+        script: |
+           sudo apt-get install openjdk-8-jdk
+           sudo apt-get install maven
