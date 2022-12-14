@@ -1,0 +1,21 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  name: DevOps_Agent
+stages:
+- stage: CI
+  jobs:
+  - job: Sample Testing Job
+    steps:
+    - task:
+      displayName: Packages Installation
+      inputs:
+       script: |
+          sudo apt-get install openjdk-8-jdk
+          sudo apt-get install maven
