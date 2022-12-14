@@ -1,8 +1,16 @@
 name: Azure Pipeline
 trigger:
 - master
-variables:
-- group: customer2_qa
+#variables:
+#- group: customer2_qa
+parameters:
+  - name: variables
+    displayName: CallingVariables
+    type: string
+    values:
+     - cbre_dev
+     - cbre_qa
+     - cbre_uat
 pool: 
  name: DevOps_Agent
 stages:
