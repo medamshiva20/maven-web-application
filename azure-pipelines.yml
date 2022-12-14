@@ -1,8 +1,8 @@
 name: Azure Pipeline
 trigger:
 - master
-#variables:
-#- group: customer2_qa
+variables:
+- group: var_dev.cbre_dev  
 parameters:
   - name: variables
     displayName: CallingVariables
